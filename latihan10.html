@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Button</title>
+</head>
+<body>
+
+    <button onclick="toggleMenu()">menu</button>
+    <div id="dropdown" style="display:none; margin-top:0px;">
+        <button style="display:block; width:100px;">menu 1</button>
+        <button style="display:block; width:100px;">menu 2</button>
+        <button style="display:block; width:100px;">menu 3</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("dropdown");
+            menu.style.display = (menu.style.display === "none") ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
