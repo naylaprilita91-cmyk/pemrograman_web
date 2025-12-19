@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Konversi Mata Uang</title>
+</head>
+<body>
+
+    <h2>Konversi Mata Uang</h2>
+
+    <label id="labelInput">Dollar</label><br>
+    <input type="number" id="input" value="0"><br><br>
+
+    <button onclick="konversi()">Konversi</button>
+    <button onclick="tukar()">Tukar</button><br><br>
+
+    <label id="labelHasil">Rupiah</label>
+    <p id="hasil">0</p>
+
+    <script>
+        const kurs = 15000;
+        let mode = "dollar"; // mode awal
+
+        function konversi() {
+            let nilai = parseFloat(document.getElementById("input").value) || 0;
+
+            if (mode === "dollar") {
+                document.getElementById("hasil").textContent = nilai * kurs;
+            } else {
+                document.getElementById("hasil").textContent = (nilai / kurs).toFixed(6);
+            }
+        }
+
+        function tukar() {
+            if (mode === "dollar") {
+                mode = "rupiah";
+                document.getElementById("labelInput").textContent = "Rupiah";
+                document.getElementById("labelHasil").textContent = "Dollar";
+            } else {
+                mode = "dollar";
+                document.getElementById("labelInput").textContent = "Dollar";
+                document.getElementById("labelHasil").textContent = "Rupiah";
+            }
+
+            // reset nilai saat berpindah
+            document.getElementById("input").value = 0;
+            document.getElementById("hasil").textContent = 0;
+        }
+    </script>
+
+</body>
+</html>
